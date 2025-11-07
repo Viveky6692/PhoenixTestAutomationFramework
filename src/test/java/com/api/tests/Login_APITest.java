@@ -23,7 +23,7 @@ public class Login_APITest {
 		
 		//Config_Manager configManager = new Config_Manager();  
 		
-		  System.out.println("-----> "+ System.getProperty("env"));
+		  System.out.println("Running test in "+ System.getProperty("env"));
 		    given()
 		    .baseUri(getProperty("BASE_URI"))  // method of Config_Manager Class
 		    .and()

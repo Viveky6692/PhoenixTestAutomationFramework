@@ -50,8 +50,8 @@ public class Config_Manager {
 		
 		 
 
-		try (InputStream input = Thread.currentThread()
-		        .getContextClassLoader()
+		try (InputStream input = Thread.currentThread()   // Returns File path as input Stream independent of Operating Systems
+		        .getContextClassLoader()    // Load resource File from src/test/resources folder 
 		        .getResourceAsStream(path)) {
 
 		    if (input == null) {
