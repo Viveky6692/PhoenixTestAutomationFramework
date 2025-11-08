@@ -26,7 +26,7 @@ public class MasterAPITest {
 		.header("Authorization",AuthTokenProvider.getToken(Roles.FD))
 		.and()
         .contentType("")    // explicitly keep content type as blank
-		//.log().all()
+        .log().uri()
 		
          .when()
          .post("master")   // default Content-type application/url/formencoded
@@ -45,7 +45,7 @@ public class MasterAPITest {
          .body("data.mst_oem.id",Matchers.everyItem(Matchers.not(Matchers.blankOrNullString())))
          .body("data.mst_oem.name",Matchers.everyItem(Matchers.not(Matchers.blankOrNullString())))
          .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("JsonSchema_Folder/MasterAPI_Schema.json"))
-        // .log().body()
+         .log().body()
          .log().status();
 		 
 				 	
@@ -60,6 +60,8 @@ public class MasterAPITest {
 			 given()
 			.baseUri(Config_Manager.getProperty("BASE_URI"))
 			.and()
+			.log().uri()
+			.log().method()
 			 
 			.and()
 	        .contentType("")    // explicitly keep content type as blank
@@ -69,7 +71,8 @@ public class MasterAPITest {
 	         .post("master")   // default Content-type application/url/formencoded
 	         
 	         .then()
-	         .statusCode(401);
+	         .statusCode(401)
+	          .log().all();
 		   
 		   
 	   }
