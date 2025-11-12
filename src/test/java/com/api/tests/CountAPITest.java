@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import com.api.constant.Roles;
 import com.api.utils.AuthTokenProvider;
 import com.api.utils.Config_Manager;
+import com.api.utils.SpecUtil;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
 
@@ -21,20 +22,14 @@ public class CountAPITest {
 	{
 		
 		try {
+			
 			given()
-			.baseUri(Config_Manager.getProperty("BASE_URI"))   // Config manager class to provide Base URI
-			.and()
-			.header("Authorization", AuthTokenProvider.getToken(Roles.FD))  // fetch the dynamic token for FD user
-			.and()
-			.log().uri()
-			.log().headers()
-			.log().method()
+		    .spec(SpecUtil.requestSpecWithAuthToken(Roles.FD))
 			.when()
 			.get("/dashboard/count")
 			 
 			 .then()
-			 .log().all()
-			 .statusCode(200)    // verify Status Code 
+			 .spec(SpecUtil.responseSpecification())   
 			 .body("message", Matchers.equalTo("Success"))       // Verify success message 
 			 .time(Matchers.lessThan(2000L))		// verify response time is less than 20 Mliseconds 
 			 .body("data", Matchers.notNullValue())
@@ -60,18 +55,14 @@ public class CountAPITest {
 		{
 			
 			 given()
-			.baseUri(Config_Manager.getProperty("BASE_URI"))   // Config manager class to provide Base URI
-			.and()
-			.log().uri()
-			.log().headers()
-			.log().method()
+			 .spec(SpecUtil.requestSpecification()) // Config manager class to provide Base URI
+			
 			
 			.when()
 			.get("/dashboard/count")
 
 			 .then()
-			 .log().all()
-			 .statusCode(401);
+			 .spec(SpecUtil.responseSpecification_Text(401));
 					
 		}
 				

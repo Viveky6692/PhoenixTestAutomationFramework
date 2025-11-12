@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import com.api.constant.Roles;
 import com.api.utils.AuthTokenProvider;
 import com.api.utils.Config_Manager;
+import com.api.utils.SpecUtil;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
 
@@ -21,19 +22,13 @@ public class MasterAPITest {
 	{
 		
 		 given()
-		.baseUri(Config_Manager.getProperty("BASE_URI"))
-		.and()
-		.header("Authorization",AuthTokenProvider.getToken(Roles.FD))
-		.and()
-        .contentType("")    // explicitly keep content type as blank
-        .log().uri()
+		 .spec(SpecUtil.requestSpecWithAuthToken(Roles.FD))
 		
          .when()
          .post("master")   // default Content-type application/url/formencoded
          
          .then()
-         .statusCode(200)  
-         .time(Matchers.lessThan(2000L))
+         .spec(SpecUtil.responseSpecification())   
          .body("message", Matchers.equalTo("Success"))
          .body("data",Matchers.notNullValue())
          .body("data",Matchers.hasKey("mst_oem"))
@@ -58,10 +53,7 @@ public class MasterAPITest {
 	   {
 
 			 given()
-			.baseUri(Config_Manager.getProperty("BASE_URI"))
-			.and()
-			.log().uri()
-			.log().method()
+			 .spec(SpecUtil.requestSpecification())
 			 
 			.and()
 	        .contentType("")    // explicitly keep content type as blank
@@ -71,9 +63,8 @@ public class MasterAPITest {
 	         .post("master")   // default Content-type application/url/formencoded
 	         
 	         .then()
-	         .statusCode(401)
-	          .log().all();
-		   
+	         .spec(SpecUtil.responseSpecification_Text(401));
+	         
 		   
 	   }
 
