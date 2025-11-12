@@ -10,6 +10,7 @@ import java.io.IOException;
 import org.testng.annotations.Test;
 
 import com.api.constant.Roles;
+import com.api.utils.SpecUtil;
 
 import static com.api.utils.AuthTokenProvider.*;
 
@@ -32,29 +33,16 @@ public class UserDetails_APITest {
 		    // returns the dynamically generated tokens
 		    
 		    given()
-		   .baseUri(getProperty("BASE_URI"))
-		   .and()
-		   .header(authheader) // provide the authenticaton token
-		   .contentType(ContentType.JSON)
-		   .and()
-		   .accept(ContentType.JSON)
-		   .log().uri()
-		   .log().method()
-		   .log().body()
-		   .log().headers()
+		    .spec(SpecUtil.requestSpecWithAuthToken(Roles.FD))
 		   
 		   .when()
 		   .get("userdetails")
 		   
 		   .then()
-		   .statusCode(200)
-		   .and()
-		   .time(lessThan(4000L))
+		   .spec(SpecUtil.responseSpecification())
 		   .body("message",equalTo("Success"))
 		   .and()
-		   .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("JsonSchema_Folder/UserDetails_Schema.json"))
-		   .and()
-		   .log().all();
+		   .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("JsonSchema_Folder/UserDetails_Schema.json"));
 		    	   
 	   }
        
