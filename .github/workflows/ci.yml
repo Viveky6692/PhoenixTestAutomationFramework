@@ -14,6 +14,7 @@ on:
     branches: [ "master" ]
   schedule: # Set the Cron for Midnight IST --- UTC
     - cron: "30 18 * * *"
+    - cron: "30 16 * * *"
   workflow_dispatch:
     inputs:
       env:
