@@ -54,6 +54,7 @@ public class SpecUtil {
 	   .log(LogDetail.METHOD)
 	   .log(LogDetail.HEADERS)
 	   .log(LogDetail.BODY)
+	   
 	   .build();
 	   
 	   return request;
@@ -81,6 +82,26 @@ public class SpecUtil {
 	  }
 	  
 	  
+	  public static RequestSpecification requestSpecWithAuthToken(Roles role,Object payload) throws IOException
+	  {
+		   // to manage response with Auth Token
+		  
+		 
+		  RequestSpecification request =   new RequestSpecBuilder()
+				   .setBaseUri(Config_Manager.getProperty("BASE_URI"))	
+				   .setContentType(ContentType.JSON)
+				   .setAccept(ContentType.JSON)
+				   .addHeader("Authorization", AuthTokenProvider.getToken(role))
+				   .setBody(payload)
+				   .log(LogDetail.URI)
+				   .log(LogDetail.METHOD)
+				   .log(LogDetail.HEADERS)
+				   .log(LogDetail.BODY)
+				   .build();
+				   
+				   return request;
+		  
+	  }
 	
 	  public static ResponseSpecification responseSpecification()
 	  {
