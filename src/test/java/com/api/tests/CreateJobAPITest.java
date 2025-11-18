@@ -1,5 +1,6 @@
 	package com.api.tests;
 
+import org.apache.commons.lang3.time.DateUtils;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
@@ -11,6 +12,7 @@ import com.Test.pojo.Problems;
 import com.api.constant.Roles;
 import com.api.utils.AuthTokenProvider;
 import com.api.utils.Config_Manager;
+import com.api.utils.DateTimeUtil;
 import com.api.utils.SpecUtil;
 
 import io.restassured.http.ContentType;
@@ -19,6 +21,7 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 import static io.restassured.RestAssured.*;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,9 +31,10 @@ public class CreateJobAPITest {
 	public void createJobAPITest() throws IOException
 	{
 		
+		System.out.println(Instant.now());;
 		CustomerPOJO customer = new CustomerPOJO("Vivek", "Yadav", "8788138617", "", "ccivivek123@gmail.com", "");
 		CustomerAddressPOJO customerAddress = new CustomerAddressPOJO("D 101", "Shri Maa", "Katraj", "katraj bypas", "katraj Pune", "412207", "India", "Maharashtra");
-		CustomerProduct_POJO customerProduct = new CustomerProduct_POJO("2024-10-15T18:30:00.000Z", "701398385161723", "701398385161723", "701398385161723", "2024-10-15T18:30:00.000Z", 1, 2);
+		CustomerProduct_POJO customerProduct = new CustomerProduct_POJO(DateTimeUtil.getTimeWithDaysAgo(10), "891398385161723", "891398385161723", "891398385161723", DateTimeUtil.getTimeWithDaysAgo(10), 1, 2);
 		Problems problems = new Problems(1, "Battery Issue");
 		List<Problems> problemslist = new ArrayList<Problems>();
 		problemslist.add(problems);
