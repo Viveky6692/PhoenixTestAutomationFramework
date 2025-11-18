@@ -87,7 +87,7 @@ public class SpecUtil {
 		   // to manage response with Auth Token
 		  
 		 
-		  RequestSpecification request =   new RequestSpecBuilder()
+		            RequestSpecification request =   new RequestSpecBuilder()
 				   .setBaseUri(Config_Manager.getProperty("BASE_URI"))	
 				   .setContentType(ContentType.JSON)
 				   .setAccept(ContentType.JSON)
