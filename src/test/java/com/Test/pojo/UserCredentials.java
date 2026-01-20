@@ -2,7 +2,7 @@ package com.Test.pojo;
 
 public class UserCredentials {
 	
-	//dfyfudyuf 
+	//dfyfudyuf  fddfdf
 	private String username;
 	private String password;
 	public UserCredentials(String username, String password) {
