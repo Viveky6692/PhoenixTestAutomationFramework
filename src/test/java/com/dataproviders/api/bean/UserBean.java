@@ -1,4 +1,4 @@
-package com.demos.csv;
+package com.dataproviders.api.bean;
 
 import java.util.Objects;
 
