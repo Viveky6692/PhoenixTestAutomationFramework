@@ -3,6 +3,7 @@ package com.api.utils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Iterator;
 import java.util.List;
 
 import com.dataproviders.api.bean.UserBean;
@@ -21,14 +22,14 @@ public class CsvreaderUtil {
 		   
 	   }
 		
-		public static void loadCSV (String pathOfCSVFile) {
+		public static Iterator<UserBean> loadCSV (String pathOfCSVFile) {
 			// TODO Auto-generated method stub
 			
 		/*	File csvFile = new File("C:\\Eclipse-Workspace\\PhoenixTest_AutomationFramework\\src\\main\\resources\\TestData\\LoginCred.csv");
 			FileReader filerd = new FileReader(csvFile);
 			CSVReader csvReader = new CSVReader(filerd);  // csv reader constructor 
 		*/	
-			InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("TestData/LoginCred.csv");
+			InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(pathOfCSVFile);
 			InputStreamReader isr = new InputStreamReader(is);
 			CSVReader csvReader = new CSVReader(isr);
 
@@ -39,9 +40,9 @@ public class CsvreaderUtil {
 		    		.build();
 		    
 		   List<UserBean> userList =  csvToBean.parse();
-		   System.out.println(userList.get(0).getUsername());
+		   //System.out.println(userList.get(0).getUsername());
 		   
-		   
+		   return userList.iterator();
 	}
 
 }
