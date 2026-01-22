@@ -21,4 +21,5 @@ public class CreateJobBeanMapper {
 
 	 
 	    CreateJobPayload payload = new CreateJobPayload();
+	    
 }
