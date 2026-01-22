@@ -1,6 +1,7 @@
 package com.api.utils;
 
-import com.api.request.model.CreateJobPayload;
+import com.Test.pojo.CreateJobPayload;
+import com.dataproviders.api.bean.CreateJobBean;
 
 public class CreateJobBeanMapper {
 	
@@ -20,6 +21,6 @@ public class CreateJobBeanMapper {
 	 }
 
 	 
-	    CreateJobPayload payload = new CreateJobPayload();
+	    //CreateJobPayload payload = new CreateJobPayload();
 	    
 }
