@@ -12,8 +12,8 @@ public class DataProviderUtils {
 	@DataProvider (name= "LoginAPIDataProvider",parallel = true)
   	public static Iterator<UserBean> LoginAPIDataProvider() {
 		
-  		return CsvreaderUtil.loadCSV("TestData/LoginCred.csv");
+  		return CsvreaderUtil.loadCSV("TestData/LoginCred.csv", UserBean.class);
   		
   	}
-	
+ 	
 }

@@ -22,7 +22,7 @@ public class CsvreaderUtil {
 		   
 	   }
 		
-		public static Iterator<UserBean> loadCSV (String pathOfCSVFile) {
+		public static <T> Iterator<T> loadCSV (String pathOfCSVFile, Class<T> bean) {
 			// TODO Auto-generated method stub
 			
 		/*	File csvFile = new File("C:\\Eclipse-Workspace\\PhoenixTest_AutomationFramework\\src\\main\\resources\\TestData\\LoginCred.csv");
@@ -34,15 +34,15 @@ public class CsvreaderUtil {
 			CSVReader csvReader = new CSVReader(isr);
 
 			
-		    CsvToBean<UserBean> csvToBean = new CsvToBeanBuilder(csvReader)
-		    		.withType(UserBean.class)
+		    CsvToBean<T> csvToBean = new CsvToBeanBuilder(csvReader)
+		    		.withType(bean)
 		    		.withIgnoreEmptyLine(true)
 		    		.build();
 		    
-		   List<UserBean> userList =  csvToBean.parse();
+		   List<T> list =  csvToBean.parse();
 		   //System.out.println(userList.get(0).getUsername());
 		   
-		   return userList.iterator();
+		   return list.iterator();
 	}
 
 }
