@@ -10,7 +10,8 @@
 	  <maven.compiler.source>  16 </maven.compiler.source>      
 	  <maven.compiler.target>  16 </maven.compiler.target>
 	  
-  </properties>
+  </properties>
+
   
   <build> 
 	  <plugins>
@@ -22,14 +23,15 @@
           <suiteXmlFiles>
             <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
           </suiteXmlFiles>
-        </configuration>
+        </configuration> 
       </plugin> 
 		  
 	  </plugins>	  
 </build>
     
     <dependencies>  
-		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+		
+<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
 
 <dependency>
     <groupId>io.rest-assured</groupId>
@@ -61,4 +63,5 @@
 </dependencies>
     </project>
     
+
     
