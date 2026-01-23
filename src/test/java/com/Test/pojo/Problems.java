@@ -1,10 +1,15 @@
 package com.Test.pojo;
 
-public class Problems {
+public record Problems (
 	
-	private int id;
-	private String remark;
-	public Problems(int id, String remark) {
+	 int id,
+	 String remark	
+)
+
+{
+	
+}
+	/*public Problems(int id, String remark) {
 		super();
 		this.id = id;
 		this.remark = remark;
@@ -28,4 +33,4 @@ public class Problems {
 	
 	
 
-}
+}*/

@@ -1,6 +1,8 @@
 package com.Test.pojo;
 
 import java.util.Arrays;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CreateJobPayload {
@@ -15,10 +17,12 @@ public class CreateJobPayload {
 	 @JsonProperty("customer_address")
 	private CustomerAddress customer_address;
 	private CustomerProduct customer_product;
-	private Problems problems[];
+	//private Problems problems[];
+	
+	private List<Problems> problems;
 	public CreateJobPayload(int mst_service_location_id, int mst_platform_id, int mst_warrenty_status_id,
 			int mst_oem_id, Customer customer, CustomerAddress customer_address, CustomerProduct customer_product,
-			Problems[] problems) {
+			List<Problems> problems) {
 		super();
 		this.mst_service_location_id = mst_service_location_id;
 		this.mst_platform_id = mst_platform_id;
@@ -71,10 +75,10 @@ public class CreateJobPayload {
 	public void setCustomer_product(CustomerProduct customer_product) {
 		this.customer_product = customer_product;
 	}
-	public Problems[] getProblems() {
+	public List<Problems> getProblems() {
 		return problems;
 	}
-	public void setProblems(Problems[] problems) {
+	public void setProblems(List<Problems> problems) {
 		this.problems = problems;
 	}
 	@Override
@@ -82,10 +86,8 @@ public class CreateJobPayload {
 		return "CreateJobPayload [mst_service_location_id=" + mst_service_location_id + ", mst_platform_id="
 				+ mst_platform_id + ", mst_warrenty_status_id=" + mst_warrenty_status_id + ", mst_oem_id=" + mst_oem_id
 				+ ", customer=" + customer + ", customer_address=" + customer_address + ", customer_product="
-				+ customer_product + ", problems=" + Arrays.toString(problems) + "]";
+				+ customer_product + ", problems=" + problems + "]";
 	}
-	
-	
 	
 	
 

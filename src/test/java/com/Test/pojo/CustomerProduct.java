@@ -1,14 +1,22 @@
 package com.Test.pojo;
 
-public class CustomerProduct {
+public record CustomerProduct (
 	
-	private String dop;
-	private String serial_number;
-	private String imei1;
-	private String imei2;
-	private String popurl;
-	private int product_id;
-	private int mst_model_id;
+	 String dop,
+	 String serial_number,
+	 String imei1,
+	 String imei2,
+	 String popurl,
+	 int product_id,
+	 int mst_model_id
+	
+)
+
+{
+	
+}
+
+	/*
 	public CustomerProduct(String dop, String serial_number, String imei1, String imei2, String popurl, int product_id,
 			int mst_model_id) {
 		super();
@@ -71,4 +79,4 @@ public class CustomerProduct {
 	
 	
 
-}
+}*/
