@@ -9,6 +9,11 @@ public class Problems {
 		this.id = id;
 		this.remark = remark;
 	}
+	
+	public Problems()
+	{
+		
+	}
 	public int getId() {
 		return id;
 	}
