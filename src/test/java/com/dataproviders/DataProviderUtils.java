@@ -48,20 +48,14 @@ public class DataProviderUtils {
   		
   	}
 	
-    
-	@DataProvider (name= "LoginAPIJsonDataProvider",parallel = true)
-  	public static Iterator<UserCredentils> LoginAPIJsonDataProvider() {
-		
-  		return JsonReaderUtil.loadJson("TestData/LoginAPITestData.json", UserCredentials[].class); 
-  		
-	}
 	
-	
-	@DataProvider (name= "CreateJobAPIJsonDataProvider",parallel = true)
-  	public static Iterator<CreateJobPayload> CreateJobAPIJsonDataProvider() {
+	@DataProvider (name= "CreateJobAPIFakerDataProvider",parallel = true)
+  	public static Iterator<CreateJobPayload> CreateJobAPIFakerDataProvider() {
 		
-  		return JsonReaderUtil.loadJson("TestData/CreateJobAPIData.json", CreateJobPayload[].class); 
-  		
-	}
+		String fakerCount = System.getProperty("fakerCount","5");
+		int fakerCountint = Integer.parseInt(fakerCount);
+		Iterator<CreateJobPayload> payloadIterator= FakerDataGenerator.generateFakeCreateJobData(fakerCountint);
+  		return payloadIterator;
+  	}
  	
 }
