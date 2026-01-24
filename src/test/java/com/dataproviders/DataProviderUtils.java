@@ -5,12 +5,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.Test.pojo.CreateJobPayload;
+import com.Test.pojo.UserCredentials;
 
 import org.testng.annotations.DataProvider;
 
 import com.api.utils.CreateJobBeanMapper;
 import com.api.utils.CsvreaderUtil;
-import com.api.utils.FakerDataGenerator;
+import com.api.utils.JsonReaderUtil;
 import com.dataproviders.api.bean.CreateJobBean;
 import com.dataproviders.api.bean.UserBean;
 
