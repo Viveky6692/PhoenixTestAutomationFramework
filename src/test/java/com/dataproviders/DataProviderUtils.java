@@ -49,14 +49,14 @@ public class DataProviderUtils {
   	}
 	
 	
-	@DataProvider (name= "CreateJobAPIFakerDataProvider",parallel = true)
+	/*@DataProvider (name= "CreateJobAPIFakerDataProvider",parallel = true)
   	public static Iterator<CreateJobPayload> CreateJobAPIFakerDataProvider() {
 		
 		String fakerCount = System.getProperty("fakerCount","5");
 		int fakerCountint = Integer.parseInt(fakerCount);
 		Iterator<CreateJobPayload> payloadIterator= FakerDataGenerator.generateFakeCreateJobData(fakerCountint);
   		return payloadIterator;
-  	}
+  	}*/
 		@DataProvider (name= "CreateJobAPIJsonDataProvider",parallel = true)
   	public static Iterator<CreateJobPayload> CreateJobAPIJsonDataProvider() {
 		
