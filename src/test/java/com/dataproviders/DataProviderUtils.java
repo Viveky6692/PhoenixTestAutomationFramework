@@ -1,5 +1,6 @@
 package com.dataproviders;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.testng.annotations.DataProvider;
 
 import com.api.utils.CreateJobBeanMapper;
 import com.api.utils.CsvreaderUtil;
+import com.api.utils.ExcelReaderUtil2;
 import com.api.utils.JsonReaderUtil;
 import com.dataproviders.api.bean.CreateJobBean;
 import com.dataproviders.api.bean.UserBean;
@@ -63,5 +65,11 @@ public class DataProviderUtils {
   		return JsonReaderUtil.loadJson("TestData/CreateJobAPIData.json", CreateJobPayload[].class); 
   		
 	}
+		@DataProvider (name= "LoginAPIExcelDataProvider",parallel = true)
+		public static Iterator<UserCredentials> LoginAPIExcelDataProvider() throws IOException {
+			
+	  		return ExcelReaderUtil2.loadTestData();
+	  		
+		}
  	
 }
