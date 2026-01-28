@@ -22,16 +22,19 @@ public class SpecUtil {
 	public static RequestSpecification requestSpecification() throws IOException	{
 		
 		    // take Care of common request Sections (methods)
-		    RequestSpecification request =  
-		    new RequestSpecBuilder()
-		   .setBaseUri(Config_Manager.getProperty("BASE_URI"))
-		   .setContentType(ContentType.JSON)
-		   .setAccept(ContentType.JSON)
-		   .log(LogDetail.URI)
-		   .log(LogDetail.METHOD)
-		   .log(LogDetail.HEADERS)
-		   .log(LogDetail.BODY)
-		   .build();
+	    // take Care of common request Sections (methods)
+	    RequestSpecification request =  
+	    new RequestSpecBuilder()
+	   .setBaseUri(Config_Manager.getProperty("BASE_URI"))
+	   .setContentType(ContentType.JSON)
+	   .setAccept(ContentType.JSON)
+	   .log(LogDetail.URI)
+	   .log(LogDetail.METHOD)
+	   .log(LogDetail.HEADERS)
+	   .log(LogDetail.BODY)
+	   .build();
+	   
+
 		   
 		   return request;
 		
@@ -132,7 +135,7 @@ public class SpecUtil {
 	  
 	  public static ResponseSpecification responseSpecification_Text(int statusCode)
 	  {
-		  ResponseSpecification responseSpecification = new ResponseSpecBuilder()
+		   ResponseSpecification responseSpecification = new ResponseSpecBuilder()
 		  .expectStatusCode(statusCode)
 		  .expectResponseTime(Matchers.lessThan(2000L))
 		  .log(LogDetail.ALL)

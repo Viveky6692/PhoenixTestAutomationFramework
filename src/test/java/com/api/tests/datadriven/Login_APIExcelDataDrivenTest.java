@@ -28,11 +28,11 @@ public class Login_APIExcelDataDrivenTest {
 	    		)
 	    		
 
-	    public void Login_APITest(UserCredentials userCredentials) throws IOException {
+	    public void Login_APITest(UserBean userBean) throws IOException {
 
 		   
 		  given()
-		    .spec(SpecUtil.requestSpec(userCredentials))
+		    .spec(SpecUtil.requestSpec(userBean))
 		    //.body(usercred)
 		    
 		    
