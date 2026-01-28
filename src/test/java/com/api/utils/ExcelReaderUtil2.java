@@ -13,6 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.Test.pojo.UserCredentials;
+import com.dataproviders.api.bean.CreateJobBean;
 import com.dataproviders.api.bean.UserBean;
 import com.poiji.bind.Poiji;
 
@@ -23,10 +24,10 @@ public class ExcelReaderUtil2 {
 		
 	}
 	
-	public static <T> Iterator<T> loadTestData(String sheetName, Class<T> clazz) throws IOException {
+	public static <T> Iterator<T> loadTestData(String xlsxFile, String sheetName, Class<T> clazz) throws IOException {
 		
 	
-	InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("TestData/Phoenix_testData.xlsx");
+	InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(xlsxFile);
 	
 	//get the sheet 
 	XSSFWorkbook myWorkBook = new XSSFWorkbook(is);
