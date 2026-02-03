@@ -8,7 +8,7 @@ public class DemoRunner {
 	public static void main(String[] args) throws SQLException, IOException {
 		// TODO Auto-generated method stub
 		
-		DatabaseManager.createConnection();
+		/*DatabaseManager_.createConnection();
 		long startTime = System.currentTimeMillis();
 		
 		for(int i=1; i<=1000; i++)
@@ -22,5 +22,6 @@ public class DemoRunner {
 		long endTime = System.currentTimeMillis();
 		System.out.println("Duration "+ (endTime- startTime) + "ms");
 	}
-
+*/
+	}
 }
