@@ -29,7 +29,7 @@ public class Config_Manager {
 		//env= System.getenv("env"); 
 		env = System.getProperty("env", "test");   // if we do mvn test only then env is null so used this for default env value to test
 		env = env.toLowerCase().trim();   // convert the env input to lowercase as java is case sensitive
-		
+		System.out.println("Running test in Test Env");
 		switch (env)
 		{
 		
@@ -67,7 +67,7 @@ public class Config_Manager {
 }  // end of static block
 	 
 	 
-	 public static String getProperty (String key) throws IOException
+	 public static String getProperty (String key) 
 	 {
 
       	 return prop.getProperty(key);
