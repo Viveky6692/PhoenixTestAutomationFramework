@@ -17,7 +17,7 @@ public class DatabaseManager {   // Singleton Class - Only 1 object is created o
 		
 	}
 	
-	
+
 	private static final String DB_URL= Config_Manager.getProperty("DB_URL");
 	private static final String DB_USER_NAME= Config_Manager.getProperty("DB_USER_NAME");
 	private static final String DB_PASSWORD= Config_Manager.getProperty("DB_PASSWORD");

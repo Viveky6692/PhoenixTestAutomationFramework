@@ -18,6 +18,8 @@ public class Demo_CheckingOfHikariDBManager {
 		Connection conn = DatabaseManager.getConnection();  // getConnection is calling createConnection
 		System.out.println(conn);
 		
+		
+		
 	}
 
 }
