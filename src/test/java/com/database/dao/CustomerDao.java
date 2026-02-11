@@ -2,6 +2,7 @@ package com.database.dao;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,7 +16,7 @@ public class CustomerDao {
 	
 	private static final String CUSTOMER_DETAIL_QUERY = 
 			"""
-			select * from tr_customer  where id =178079
+			select * from tr_customer  where id = ?
 			""";
 	/*
 	 * last_name
@@ -26,11 +27,12 @@ email_id
 email_id_alt
 	 * 
 	 */
-	public static CustomerDBModel getCustomerInfo() throws SQLException, IOException
+	public static CustomerDBModel getCustomerInfo(int customer_id) throws SQLException, IOException
 	{
 		Connection conn= DatabaseManager.getConnection();
-		Statement statement = conn.createStatement();
-		ResultSet resultSet= statement.executeQuery(CUSTOMER_DETAIL_QUERY);
+		PreparedStatement preparedStatement = conn.prepareStatement(CUSTOMER_DETAIL_QUERY);
+		preparedStatement.setInt(1, customer_id);
+		ResultSet resultSet= preparedStatement.executeQuery();
 		CustomerDBModel customerDBModel=null;	
 		
 			
@@ -47,6 +49,8 @@ email_id_alt
 				
 				
 				System.out.println(resultSet.getString("first_name"));
+				System.out.println(resultSet.getString("last_name"));
+				System.out.println(resultSet.getString("mobile_number"));
 				System.out.println(resultSet.getString("email_id"));
 				
 									
